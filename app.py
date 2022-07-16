@@ -29,7 +29,9 @@ def getWordImage():
     id = getTodaysID()
     url = f'http://balochi-api.herokuapp.com/api/sayadganj/id/{id}'
 
+    print(url)
     myResponse = requests.get(url)
+    print(myResponse)
 
     myJson = json.loads(myResponse.text)
     width = 1080
@@ -59,7 +61,7 @@ def getWordImage():
 
 
 def postImage(definition, hashtags):
-    caption = f'{definition} \n\n -------- \n\n {hashtags}'
+    caption = f'\n{definition} \n\n\n ---------------- \n\n\n {hashtags}'
     try:
         client.photo_upload('./post/post.jpg', caption)
     except Exception as e:
